@@ -25,6 +25,7 @@ The project includes:
 - PAN validation and KYC status correction logic
 - business-ready dimension and fact tables for reporting
 - Power BI semantic model creation
+- Power BI date table creation for time intelligence analysis
 - DAX measures and KPI reporting
 - vertical Power BI report layout
 - drill-through, field parameters, bookmarks, slicers, and interactive visuals
@@ -124,7 +125,7 @@ I added PAN validation logic on the KYC staging table to identify valid, invalid
 In the business layer, I created final reporting tables in dimension and fact structure so that Power BI could directly consume analytics-ready data.
 
 ### 7. Power BI Layer
-I connected Power BI to the PostgreSQL business layer, created the semantic model, built DAX measures, and designed the report pages.
+I connected Power BI to the PostgreSQL business layer, created the semantic model, built a dedicated **date table in Power BI** for time-based analysis, developed DAX measures, and designed the report pages.
 
 ### 8. Power BI Service Layer
 After publishing the report, I configured the dataset in Power BI Service, connected it through the On-Premises Data Gateway, enabled incremental refresh, and scheduled a daily refresh.
@@ -353,6 +354,7 @@ The Power BI report is based on:
 
 - PostgreSQL business tables
 - semantic model relationships
+- a dedicated Power BI date table for calendar-based analysis
 - DAX measures
 - KPI cards
 - slicers and filtering
@@ -367,6 +369,8 @@ In this report, I implemented the following Power BI features:
 
 - semantic model / dataset
 - relationships
+- Power BI date table
+- time intelligence support
 - DAX measures
 - KPI cards
 - slicers
@@ -447,6 +451,8 @@ This page focuses on customer and compliance-related analysis and includes:
 ## Key Metrics Used in the Report
 
 Some of the main KPIs and measures used in the report include:
+
+The Power BI model also includes a **dedicated date table** to support time-based slicing, period comparisons, and trend reporting across the portfolio.
 
 - Total Loans
 - Total Loan Amount
@@ -569,7 +575,7 @@ Run the SQL files in this order:
 Open Power BI Desktop and connect to the PostgreSQL business tables.
 
 ### Step 5
-Create the semantic model, relationships, DAX measures, and report visuals.
+Create the semantic model, build the Power BI date table, define relationships, develop DAX measures, and design the report visuals.
 
 ### Step 6
 Design the report using the vertical layout of **1080 × 4800**.
@@ -617,13 +623,6 @@ Validate the refresh pipeline, gateway mapping, credentials, and report availabi
 - schema diagram
 - banner and supporting visuals
 
----
-
-## Notes
-
-This repository is intended for personal project presentation, portfolio demonstration, and as a learning reference for anyone who wants to understand how to build a layered analytics solution using Python, PostgreSQL, SQL, and Power BI.
-
-Sensitive details such as passwords, certificates, private credentials, and machine-specific secrets should not be uploaded to GitHub.
 
 ---
 
